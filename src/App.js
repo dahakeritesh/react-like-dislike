@@ -36,7 +36,6 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <div>{this.props.headerProp}</div>
 
         <div>
           <span className="button">
