@@ -26,11 +26,17 @@ class App extends React.Component {
     this.likeHandler = this.likeHandler.bind(this);
 
     this.dislikeHandler = this.dislikeHandler.bind(this);
-
+    this.state = {state:[]};
     this.state = {
       likeCount: likes,
       dislikeCount: dislikes
     };
+  }
+
+   componentDidMount(){
+    //api call
+    fetch('https://3l2mjy8wjl.execute-api.ap-south-1.amazonaws.com/dev/user').then(resp=>resp.json())
+    .then(resp=>this.setState({state:resp}))
   }
 
   render() {
@@ -44,7 +50,7 @@ class App extends React.Component {
               onClick={this.likeHandler}
             >
               Like
-            </button>
+            </button>{" "}
             | {this.state.likeCount}
           </span>
 
